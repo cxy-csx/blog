@@ -16,6 +16,12 @@ Git
 npm install -g hexo-cli
 ```
 
+初始化
+
+```
+hexo init
+```
+
 编译
 
 ```
@@ -39,4 +45,8 @@ npm install --save hexo-theme-fluid
 ```
 theme: fluid
 ```
+
+自定义配置文件_confing.fluid.yml
+
+
 
