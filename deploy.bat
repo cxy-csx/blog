@@ -1,2 +1,2 @@
-hexo g
+hexo g;
 git add .
