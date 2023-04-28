@@ -114,7 +114,7 @@ deploy:
 index:
   slogan:
     enable: true
-    text: 技术博客
+    text: 个人技术博客
   post_url_target: _blank
   post_meta:
     date: true
