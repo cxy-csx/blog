@@ -154,3 +154,6 @@ footer:
   content: 程序员陈师兄
 
 
+custom_head: '<meta name="referrer" content="no-referrer">'
+
+
