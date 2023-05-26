@@ -5,47 +5,47 @@ date: 2023-05-26 15:20:37
 
 # 操作步骤
 
-1. 更新软件包列表
+1.更新软件包列表
 
-   ```
-   sudo apt update
-   ```
+```
+sudo apt update
+```
 
-2. 安装必要的软件包，以允许apt使用HTTPS：
+2.安装必要的软件包，以允许apt使用HTTPS：
 
-   ```
-   sudo apt install apt-transport-https ca-certificates curl software-properties-common
-   ```
+```
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+```
 
-3. 添加Docker官方GPG密钥：
+3.添加Docker官方GPG密钥：
 
-   ```
-   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-   ```
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
 
-4. 添加Docker官方稳定版存储库（repository）：
+4.添加Docker官方稳定版存储库（repository）：
 
-   ```
-   echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-   ```
+```
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
 
-5. 更新软件包列表（再次运行）：
+5.更新软件包列表（再次运行）：
 
-   ```
-   sudo apt update
-   ```
+```
+sudo apt update
+```
 
-6. 安装Docker引擎：
+6.安装Docker引擎：
 
-   ```
-   sudo apt install docker-ce docker-ce-cli containerd.io
-   ```
+```
+sudo apt install docker-ce docker-ce-cli containerd.io
+```
 
-7. 查看docker版本：
+7.查看docker版本：
 
-   ```
-   docker --version
-   ```
+```
+docker --version
+```
 
 解释
 
