@@ -117,7 +117,7 @@ v-model 双向绑定
             text: "请输入..."
         }
     });
-    app.$mount('#app');
+    vm.$mount('#app');
 </script>
 ```
 
