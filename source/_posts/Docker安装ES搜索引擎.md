@@ -231,3 +231,56 @@ public class BaseTest {
 }
 ```
 
+## 增
+
+```java
+public String createDocument(Product product){
+    
+    elasticsearchRestTemplate.save(product);
+    return product.getId();
+    
+}
+```
+
+## 删
+
+```java
+public void deleteDocument(String documentId){
+    
+    elasticsearchRestTemplate.delete(documentId, Product.class);
+    
+}
+```
+
+## 改
+
+```java
+public void updateDocument(String documentId, Product product) {
+
+        String jsonStr = JSONUtil.parse(product).toString();
+
+        Document document = Document.parse(jsonStr);
+
+        UpdateQuery query = UpdateQuery
+                .builder(String.valueOf(documentId))
+                .withDocument(document)
+                .build();
+
+        IndexCoordinates indexCoordinates = elasticsearchRestTemplate.getIndexCoordinatesFor(Product.class);
+
+        UpdateResponse update = elasticsearchRestTemplate.update(query, indexCoordinates);
+    
+
+}
+```
+
+## 查
+
+```java
+public Product findById(String documentId) {
+        return elasticsearchRestTemplate.get(documentId, Product.class);
+}
+```
+
+# ES查询
+
