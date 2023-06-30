@@ -29,13 +29,118 @@ docker run -d --name kibana --net elastic -p 5601:5601 docker.elastic.co/kibana/
 
 通过访问 `http://ip:9200` 来验证 Elasticsearch 是否正常工作，以及通过访问 `http://ip:5601` 来验证 Kibana 是否正常工作
 
+# 分词器安装
 
+1.进入容器内部
 
+```
+docker exec -it <elasticsearch_container_id_or_name> /bin/bash
+```
 
+2.下载分词器
 
+```
+./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.14.0/elasticsearch-analysis-ik-7.14.0.zip
+```
 
+3.退出容器并重启
 
+```
+docker restart <elasticsearch_container_id_or_name>
+```
 
+测试
+
+```
+POST _analyze
+{
+  "analyzer":"ik_max_word",
+  "text": "我是中国人"
+}
+```
+
+截图
+
+![image-20230629210053461](http://cxy-csx.top/image-20230629210053461.png)
+
+# 索引
+
+创建、查看、删除索引
+
+```
+PUT /<index_name>
+
+get /<index_name>
+
+DELETE /<index_name>
+```
+
+指定数据结构
+
+```json
+PUT /product
+{
+  "mappings": {
+    "properties": {
+      "productName": {
+        "type": "text",
+        "analyzer":"ik_max_word"
+      },
+      "remarks": {
+        "type": "text",
+        "analyzer":"ik_max_word"
+      },
+      "createTime": {
+        "type": "date"
+      }
+    }
+  }
+}
+```
+
+添加、查看、删除、修改数据
+
+新增
+
+```
+POST /product/_doc
+{
+  "productName": "Product 1",
+  "remarks": "This is a sample product",
+  "createTime": "2023-06-29"
+}
+```
+
+![image-20230629215900236](http://cxy-csx.top/image-20230629215900236.png)
+
+查看
+
+```
+POST /product/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+```
+
+删除
+
+```
+DELETE /product/_doc/<id>
+```
+
+修改
+
+```
+POST /product/_update/<id>
+{
+  "doc": {
+    "productName": "Updated Product",
+    "remarks": "This product has been updated"
+  }
+}
+```
 
 # Java操作ES
 
