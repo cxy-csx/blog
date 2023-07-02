@@ -156,5 +156,34 @@ new Vue({
 }).$mount('#app')
 ```
 
+App.vue
 
+```vue
+<template>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+</template>
+
+<script>
+
+
+export default {
+  name: 'App'
+}
+</script>
+
+<style>
+</style>
+```
+
+# Less样式引入
+
+引入依赖
+
+```
+npm install less less-loader --save-dev
+```
+
+`--save-dev` 是 npm 安装包时的一个选项，它表示将包添加到项目的开发依赖项（devDependencies）中。当您使用 `--save-dev` 选项安装一个包时，该包将被列在项目的 `package.json` 文件的 `devDependencies` 字段中
 
