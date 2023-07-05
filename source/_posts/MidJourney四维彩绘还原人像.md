@@ -45,6 +45,10 @@ https://discord.com/login
 
 输入命令
 
+```
+A newborn Chinese baby eyes closed white skin,rosy face, with some light coming in from the side against a dreamy white background. The compositionis beautiful, rich, and bright.
+```
+
 ![image-20230705114121875](http://cxy-csx.top/image-20230705114121875.png)
 
 等待结果
