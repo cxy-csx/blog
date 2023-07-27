@@ -19,21 +19,13 @@ Error: Nothing to do
 
 解决
 
-`vi /etc/yum.repos.d/nginx.repo`
+先安装epel-release软件仓库
 
 ```
-[aliyun-centos-base]
-name=阿里云 CentOS $releasever - 基础包
-baseurl=http://mirrors.aliyun.com/centos/$releasever/os/$basearch/
-gpgcheck=0
-enabled=1
-
-[aliyun-centos-updates]
-name=阿里云 CentOS $releasever - 更新包
-baseurl=http://mirrors.aliyun.com/centos/$releasever/updates/$basearch/
-gpgcheck=0
-enabled=1
+sudo yum install epel-release
 ```
+
+EPEL 是由 Fedora 社区维护的额外软件包仓库，为 CentOS 和 RHEL 等企业级 Linux 提供了大量的扩展软件包，这些软件包在默认的 CentOS 或 RHEL 官方仓库中通常不包含
 
 清除缓存
 
