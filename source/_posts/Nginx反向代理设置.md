@@ -69,3 +69,16 @@ server {
 ```
 
 另外，http请求可以重定向到https
+
+检查nginx配置文件
+
+```
+nginx -t
+```
+
+重载配置文件
+
+```
+sudo nginx -s reload
+```
+
