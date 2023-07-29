@@ -72,5 +72,13 @@ public enum UserEnum {
 }
 ```
 
+# Mybatis Plus配置
+
+```
+mybatis-plus:
+    configuration:
+        default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+```
+
 
 
