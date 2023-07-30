@@ -10,9 +10,12 @@ package com.csx.cxy.config;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
@@ -36,33 +39,29 @@ public class DateFormatConfig {
     @Value("yyyy-MM-dd HH:mm:ss")
     private String pattern;
 
-    /**
-     * Date格式化
-     * @return
-     */
-    @Bean
-    public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilder() {
-        return builder -> {
-            TimeZone tz = TimeZone.getTimeZone("UTC");
-            DateFormat df = new SimpleDateFormat(pattern);
-            df.setTimeZone(tz);
-            builder.dateFormat(df);
-        };
-    }
-
-    /**
-     * LocalDateTime格式化
-     * @return
-     */
-    @Bean
-    public LocalDateTimeSerializer localDateTimeDeserializer() {
-        return new LocalDateTimeSerializer(DateTimeFormatter.ofPattern(pattern));
-    }
 
     @Bean
-    public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
-        return builder -> builder.serializerByType(LocalDateTime.class, localDateTimeDeserializer());
+    public ObjectMapper objectMapper() {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        // 禁用将日期序列化为时间戳
+        objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+        // 设置日期时间格式
+        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+        objectMapper.setDateFormat(dateFormat);
+
+        // 注册 JavaTimeModule，支持对 Java 8 时间日期类型的序列化和反序列化
+        objectMapper.registerModule(new JavaTimeModule());
+
+        // 注册全局 LocalDateTime 序列化器
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+        objectMapper.registerModule(new SimpleModule()
+                .addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(formatter)));
+        
+        return objectMapper;
     }
+
 
 }
 
