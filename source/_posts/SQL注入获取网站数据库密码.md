@@ -90,3 +90,6 @@ http://testphp.vulnweb.com/artists.php?artist=1
 
 ![image-20230802174415017](http://cxy-csx.top/image-20230802174415017.png)
 
+用户表数据
+
+![image-20230802180221573](http://cxy-csx.top/image-20230802180221573.png)
