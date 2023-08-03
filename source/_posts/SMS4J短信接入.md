@@ -22,9 +22,9 @@ jar包
 sms:
   tencent:
     #腾讯云的accessKey
-    accessKeyId: AKIDRgfiZH0FPO8g3LLL0RbolcIpGvrYpmCN
+    accessKeyId: xxx
     #腾讯云的accessKeySecret
-    accessKeySecret: DBt99ybxeebKnfLm3iAyf6rNHEwqUUhe
+    accessKeySecret: xxx
     #短信签名
     signature: 程序员陈师兄个人网
     #模板ID 用于发送固定模板短信使用
