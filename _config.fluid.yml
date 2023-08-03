@@ -126,8 +126,8 @@ navbar:
   blog_title: 程序员陈师兄
   menu:
     - { key: 'home', link: '/', icon: 'iconfont icon-home-fill', name: '首页'}
-    - { key: 'archives', link: 'archives', icon: 'icon-guidang', name: '归档' }
-    - { key: 'categories', link: 'categories', icon: 'icon-fenlei', name: '分类' }
+    - { key: 'archives', link: 'archives', icon: 'iconfont icon-guidang', name: '归档' }
+    - { key: 'categories', link: 'categories', icon: 'iconfont icon-fenlei', name: '分类' }
     - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill', name: '标签'}
     - { key: 'tools', link: 'tools', icon: 'iconfont icon-xiaoshuai', name: '工具' }
     - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: '联系' }
