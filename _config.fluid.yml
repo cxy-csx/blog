@@ -127,7 +127,7 @@ navbar:
   menu:
     - { key: 'home', link: '/', icon: 'iconfont icon-home-fill', name: '首页'}
     - { key: 'archives', link: 'archives', icon: 'iconfont icon-codeforces', name: '归档' }
-    - { key: 'categories', link: 'categories', icon: 'iconfont icon-fenlei', name: '分类' }
+    - { key: 'categories', link: 'categories', icon: 'iconfont icon-th-large', name: '分类' }
     - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill', name: '标签'}
     - { key: 'tools', link: 'tools', icon: 'iconfont icon-xiaoshuai', name: '工具' }
     - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: '联系' }
