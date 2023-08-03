@@ -124,6 +124,8 @@ index:
 # 导航栏配置
 navbar:
   blog_title: 程序员陈师兄
+  menu:
+    - { key: 'about', link: '/tools/', icon: 'iconfont icon-user-fill', name: '联系我' }
 
 
 post:
