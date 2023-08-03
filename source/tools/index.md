@@ -5,6 +5,17 @@ banner_img_height: 70
 banner_mask_alpha: 0.3
 ---
 
+# Github项目
+
+# Redis
+
+windows
+
+https://github.com/MicrosoftArchive/redis/releases
+
+客户端
+
+https://github.com/qishibo/AnotherRedisDesktopManager/releases
 
 
 
@@ -12,7 +23,13 @@ banner_mask_alpha: 0.3
 
 
 
+# 效率工具
+
+## utools
+
+[utools]: https://www.u.tools/
 
 
 
-   123
+# Chatgpt
+
