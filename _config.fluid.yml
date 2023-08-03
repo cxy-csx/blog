@@ -124,13 +124,14 @@ index:
 # 导航栏配置
 navbar:
   blog_title: 程序员陈师兄
-  menu:
-    - { key: 'home', link: '/', icon: 'iconfont icon-home-fill', name: '首页'}
-    - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill', name: '标签'}
-    - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: '联系方式' }
-    - { key: 'tools', link: '/tools/', icon: 'iconfont icon-xiaoshuai', name: '效率工具' }
+  # menu:
+  #   - { key: 'home', link: '/', icon: 'iconfont icon-home-fill', name: '首页'}
+  #   - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill', name: '标签'}
+  #   - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: '联系方式' }
+  #   - { key: 'tools', link: '/tools/', icon: 'iconfont icon-xiaoshuai', name: '效率工具' }
 
 
+# 文章配置
 post:
   meta:
     author:  # 作者，优先根据 front-matter 里 author 字段，其次是 hexo 配置中 author 值
@@ -149,7 +150,7 @@ post:
       source: "leancloud"  # 统计数据来源，可选：leancloud | busuanzi   注意不蒜子会间歇抽风
       format: "{} 次"
 
-
+# 页面底部
 footer:
   statistics:
     enable: true
