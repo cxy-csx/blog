@@ -125,7 +125,10 @@ index:
 navbar:
   blog_title: 程序员陈师兄
   menu:
-    - { key: 'about', link: '/tools/', icon: 'iconfont icon-user-fill', name: '联系我' }
+    - { key: 'home', link: '/', icon: 'iconfont icon-home-fill', name: '首页'}
+    - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill', name: '标签'}
+    - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: '联系方式' }
+    - { key: 'tools', link: '/tools/', icon: 'iconfont icon-user-fill', name: '效率工具' }
 
 
 post:
