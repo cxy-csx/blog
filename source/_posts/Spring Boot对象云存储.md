@@ -44,8 +44,8 @@ spring:
         qiniu-kodo:
             - platform: qiniu-kodo-1
               enable-storage: true
-              access-key: Uxv7S8cYoVvzznmVcWegxzV-ihWvqjDR5iV3Joph
-              secret-key: jM_VBuv9TODxZ0M1F5hPUtYkyGhjutKQXzRSe93Q
+              access-key: xxx
+              secret-key: xxx
               bucket-name: md-picture-cxy-csx
               domain: https://qiniu.cxy-csx.top/
 ```
