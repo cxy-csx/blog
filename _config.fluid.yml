@@ -213,6 +213,13 @@ links:
       link: "https://github.com/syhyz1990/baiduyun",
       avatar: "/img/favicon.png"
     }
+    - {
+      title: "Fluid",
+      intro: "Fluid",
+      link: "https://hexo.fluid-dev.com/docs/start/",
+      avatar: "/img/favicon.png"
+    }
+
 
 custom_head: '<meta name="referrer" content="no-referrer">'
 
