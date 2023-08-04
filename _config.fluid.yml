@@ -166,13 +166,16 @@ footer:
 
 # 标签云
 tag:
+  enable: true
+  banner_img: /img/default.png
+  banner_img_height: 80
+  banner_mask_alpha: 0.3
   tagcloud:
     min_font: 15
     max_font: 30
-    unit: px  # 字号单位
+    unit: px
     start_color: "#BBBBEE"
     end_color: "#337ab7"
-
 
 custom_head: '<meta name="referrer" content="no-referrer">'
 
