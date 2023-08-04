@@ -129,7 +129,7 @@ navbar:
     - { key: "archive", link: "/archives/", icon: "iconfont icon-archive-fill" }
     - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
-    - { key: "tool", link: "/tools/", icon: "iconfont icon-th-large", name: "工具"}
+    # - { key: "tool", link: "/tools/", icon: "iconfont icon-th-large", name: "工具"}
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
     - { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
 
@@ -184,25 +184,33 @@ links:
   banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
+  name: 工具
   # 友链的成员项
   # Member item of page
   items:
     - {
-      title: "Fluid Blog",
-      intro: "主题博客1",
-      link: "https://hexo.fluid-dev.com/",
+      title: "Redis",
+      intro: "Redis Windows",
+      link: "https://github.com/MicrosoftArchive/redis/releases",
       avatar: "/img/favicon.png"
     }
     - {
-      title: "Fluid Docs",
+      title: "AnotherRedisDesktopManager",
       intro: "主题使用指南",
-      link: "https://hexo.fluid-dev.com/docs/",
+      link: "https://github.com/qishibo/AnotherRedisDesktopManager/releases",
       avatar: "/img/favicon.png"
     }
     - {
-      title: "Fluid Repo",
-      intro: "主题 GitHub 仓库",
-      link: "https://github.com/fluid-dev/hexo-theme-fluid",
+      title: "utool",
+      intro: "utool效率工具",
+      link: "https://www.u.tools/",
+      avatar: "/img/favicon.png"
+    }
+
+    - {
+      title: "网盘助手",
+      intro: "油猴脚本",
+      link: "https://github.com/syhyz1990/baiduyun",
       avatar: "/img/favicon.png"
     }
 
