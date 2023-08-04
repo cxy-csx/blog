@@ -1,6 +1,7 @@
 ---
 title: Linux安装Mysql
 date: 2023-08-03 11:27:47
+tags: [Mysql]
 ---
 
 # Linux安装Mysql
