@@ -196,7 +196,7 @@ links:
     }
     - {
       title: "AnotherRedisDesktopManager",
-      intro: "主题使用指南",
+      intro: "Redis 客户端",
       link: "https://github.com/qishibo/AnotherRedisDesktopManager/releases",
       avatar: "/img/favicon.png"
     }
