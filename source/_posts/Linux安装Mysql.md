@@ -11,15 +11,11 @@ date: 2023-08-03 11:27:47
 
 1.下载rpm安装包
 
-
-
 ```plain
 wget -i -c http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm
 ```
 
 2.安装mysql
-
-
 
 ```plain
 yum -y install mysql57-community-release-el7-10.noarch.rpm
@@ -29,15 +25,11 @@ yum -y install mysql-community-server
 
 3.启动mysql服务
 
-
-
 ```plain
 systemctl start mysqld.service
 ```
 
 4.关闭mysql
-
-
 
 ```plain
 service mysqld stop
@@ -45,23 +37,17 @@ service mysqld stop
 
 5.查看mysql服务
 
-
-
 ```plain
 service mysqld status
 ```
 
 6.查看mysql密码
 
-
-
 ```plain
 grep 'password' /var/log/mysqld.log
 ```
 
 7.连接mysql
-
-
 
 ```plain
 mysql -u root -p

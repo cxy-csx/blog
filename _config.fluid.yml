@@ -164,6 +164,16 @@ footer:
   content: 程序员陈师兄
 
 
+# 标签云
+tag:
+  tagcloud:
+    min_font: 15
+    max_font: 30
+    unit: px  # 字号单位
+    start_color: "#BBBBEE"
+    end_color: "#337ab7"
+
+
 custom_head: '<meta name="referrer" content="no-referrer">'
 
 
