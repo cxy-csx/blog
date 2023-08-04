@@ -219,6 +219,18 @@ links:
       link: "https://hexo.fluid-dev.com/docs/start/",
       avatar: "/img/favicon.png"
     }
+    - {
+      title: "Codeformer",
+      intro: "Codeformer",
+      link: "https://replicate.com/sczhou/codeformer",
+      avatar: "/img/favicon.png"
+    }
+    - {
+      title: "无限邮箱",
+      intro: "无限邮箱",
+      link: "https://www.2925.com/login/",
+      avatar: "/img/favicon.png"
+    }
 
 
 custom_head: '<meta name="referrer" content="no-referrer">'
