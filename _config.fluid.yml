@@ -237,6 +237,12 @@ links:
       link: "https://github.com/metersphere/metersphere",
       avatar: "/img/favicon.png"
     }
+    - {
+      title: "Clash",
+      intro: "Clash",
+      link: "https://docs.cfw.lbyczf.com/",
+      avatar: "/img/favicon.png"
+    }
 
 
 
