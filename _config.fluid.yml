@@ -231,6 +231,13 @@ links:
       link: "https://www.2925.com/login/",
       avatar: "/img/favicon.png"
     }
+    - {
+      title: "测试平台",
+      intro: "metersphere",
+      link: "https://github.com/metersphere/metersphere",
+      avatar: "/img/favicon.png"
+    }
+
 
 
 custom_head: '<meta name="referrer" content="no-referrer">'
