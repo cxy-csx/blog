@@ -244,6 +244,33 @@ links:
       avatar: "/img/favicon.png"
     }
 
+    - {
+      title: "接码平台",
+      intro: "接码",
+      link: "https://sms-activate.org/",
+      avatar: "/img/favicon.png"
+    }
+
+    - {
+      title: "狗云",
+      intro: "狗云",
+      link: "https://www.dogyun.com/?ref=cxycsx",
+      avatar: "/img/favicon.png"
+    }
+
+    - {
+      title: "007",
+      intro: "007",
+      link: "https://www.007idc.cn/aff/ARXNPPNU",
+      avatar: "/img/favicon.png"
+    }
+    - {
+      title: "小程序线上日志定位",
+      intro: "小程序线上日志定位",
+      link: "https://developers.weixin.qq.com/miniprogram/dev/framework/realtimelog/",
+      avatar: "/img/favicon.png"
+    }
+
 
 
 custom_head: '<meta name="referrer" content="no-referrer">'
