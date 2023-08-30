@@ -34,3 +34,17 @@ ctrl + home 回到文件头
 ctrl + end 回到文件尾
 
 shift + home 选中一行
+
+# 常用命令
+
+查看端口占用的进程
+
+```plain
+netstat -ano|findstr <端口号>
+```
+
+杀进程
+
+```plain
+taskkill /f /pid <进程pid>
+```
