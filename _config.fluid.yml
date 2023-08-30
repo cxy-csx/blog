@@ -288,14 +288,12 @@ links:
       link: "https://developer.work.weixin.qq.com/document/path/91770",
       avatar: "/img/favicon.png"
     }
-
     - {
-      title: "公众号账号",
-      intro: "公众号账号",
+      title: "账号交易",
+      intro: "账号交易",
       link: "https://xmt.a5.cn/",
       avatar: "/img/favicon.png"
     }
-
     - {
       title: "美国地址生成",
       intro: "美国地址生成",
@@ -308,7 +306,7 @@ links:
       link: "https://smallpdf.com/cn/unlock-pdf",
       avatar: "/img/favicon.png"
     }
-     - {
+    - {
       title: "JS在线加解密",
       intro: "JS在线加解密",
       link: "https://tool.lu/js/index.html",
