@@ -270,6 +270,53 @@ links:
       link: "https://developers.weixin.qq.com/miniprogram/dev/framework/realtimelog/",
       avatar: "/img/favicon.png"
     }
+    - {
+      title: "wechatpy",
+      intro: "wechatpy",
+      link: "http://docs.wechatpy.org/zh_CN",
+      avatar: "/img/favicon.png"
+    }
+    - {
+      title: "企业微信机器人",
+      intro: "企业微信机器人",
+      link: "https://developer.work.weixin.qq.com/document/path/91770",
+      avatar: "/img/favicon.png"
+    }
+    - {
+      title: "企业微信机器人",
+      intro: "企业微信机器人",
+      link: "https://developer.work.weixin.qq.com/document/path/91770",
+      avatar: "/img/favicon.png"
+    }
+
+    - {
+      title: "公众号账号",
+      intro: "公众号账号",
+      link: "https://xmt.a5.cn/",
+      avatar: "/img/favicon.png"
+    }
+
+    - {
+      title: "美国地址生成",
+      intro: "美国地址生成",
+      link: "http://www.haoweichi.com/",
+      avatar: "/img/favicon.png"
+    }
+    - {
+      title: "PDF解密",
+      intro: "PDF解密",
+      link: "https://smallpdf.com/cn/unlock-pdf",
+      avatar: "/img/favicon.png"
+    }
+     - {
+      title: "JS在线加解密",
+      intro: "JS在线加解密",
+      link: "https://tool.lu/js/index.html",
+      avatar: "/img/favicon.png"
+    }
+
+
+
 
 
 
