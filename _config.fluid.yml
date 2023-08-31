@@ -312,6 +312,21 @@ links:
       link: "https://tool.lu/js/index.html",
       avatar: "/img/favicon.png"
     }
+    - {
+      title: "在线运行代码",
+      intro: "在线运行代码",
+      link: "https://tool.lu/coderunner/",
+      avatar: "/img/favicon.png"
+    }
+    - {
+      title: "代码压缩",
+      intro: "代码压缩",
+      link: "https://tool.css-js.com/",
+      avatar: "/img/favicon.png"
+    }
+
+
+
 
 
 
