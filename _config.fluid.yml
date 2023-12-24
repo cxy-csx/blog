@@ -162,7 +162,11 @@ footer:
     pv_format: "总访问量 {} 次"  # 显示的文本，{}是数字的占位符（必须包含)，下同
     uv_format: "总访客数 {} 人"
   content: 程序员陈师兄
-  beian: 粤ICP备20038180
+  beian:
+    enable: true
+    # ICP证号
+    icp_text: 粤ICP备20038180
+    police_code: 20038180
 
 
 # 标签云
