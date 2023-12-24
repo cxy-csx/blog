@@ -164,7 +164,7 @@ footer:
   content: 程序员陈师兄
   beian:
     enable: true
-    icp_text: 粤ICP备20038180
+    icp_text: 粤ICP备20038180号
     # 公安备案号，不填则只显示ICP
     # police_text: 粤ICP备20038180
     # 公安备案的编号，用于URL跳转查询
