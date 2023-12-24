@@ -164,7 +164,6 @@ footer:
   content: 程序员陈师兄
   beian:
     enable: true
-    # ICP证号
     icp_text: 粤ICP备20038180
     police_code: 20038180
 
