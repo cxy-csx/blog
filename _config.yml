@@ -101,6 +101,11 @@ ignore:
 theme: fluid
 
 
+footer:
+  beian:
+    enable: true
+    icp_text: 粤ICP备20038180号
+
 
 
 # Deployment
