@@ -163,9 +163,14 @@ footer:
     uv_format: "总访客数 {} 人"
   content: 程序员陈师兄
   beian:
-    enable: false
+    enable: true
     icp_text: 粤ICP备20038180
-    police_code: 20038180
+    # 公安备案号，不填则只显示ICP
+    # police_text: 粤ICP备20038180
+    # 公安备案的编号，用于URL跳转查询
+    # police_code: 20038180
+    # 公安备案的图片. 为空时不显示备案图片
+    # police_icon: /img/police_beian.png
 
 
 # 标签云
