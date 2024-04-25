@@ -1,2 +1,0 @@
-hexo g;
-git add .

@@ -7,15 +7,9 @@ date: 2023-08-30 15:35:00
 
 ## IOC
 
-
-
 通过IOC容器创建对象步骤
 
-
-
 （1）创建Maven项目，导入依赖
-
-
 
 ```xml
 <dependency>
@@ -25,11 +19,7 @@ date: 2023-08-30 15:35:00
 </dependency>
 ```
 
-
-
 （2）定义类
-
-
 
 ```java
 public class Student {
@@ -38,37 +28,21 @@ public class Student {
 }
 ```
 
-
-
 （3）注册bean
-
-
 
 ```xml
 <bean id="student" class="com.cskaoyan.Student"/>
 ```
 
-
-
 （4）获取对象
 
-
-
-**属性赋值**
-
-
+属性赋值
 
 ### XML
 
-
-
 （1）通过Set方法给属性赋值
 
-
-
 基本数据类型
-
-
 
 ```xml
 <bean id="student" class="com.cskaoyan.Student">
@@ -77,11 +51,7 @@ public class Student {
 </bean>
 ```
 
-
-
 引用数据类型
-
-
 
 ```xml
 <bean id="student" class="com.cskaoyan.Student">
@@ -96,15 +66,9 @@ public class Student {
 </bean>
 ```
 
-
-
 （2）通过构造方法赋值
 
-
-
 定义类
-
-
 
 ```java
 @Data
@@ -119,11 +83,7 @@ public class Address {
 }
 ```
 
-
-
 通过构造方法给对象赋值
-
-
 
 ```xml
 <bean id="address" class="com.cskaoyan.Address">
@@ -132,15 +92,9 @@ public class Address {
 </bean>
 ```
 
-
-
 自动赋值方式
 
-
-
 `byName`属性名与bean的id值相同
-
-
 
 ```xml
 <bean id="student" class="com.cskaoyan.Student" autowire="byName">
@@ -154,11 +108,7 @@ public class Address {
 </bean>
 ```
 
-
-
 `byType`属性类型与bean的类型相同
-
-
 
 ```java
 <bean id="student" class="com.cskaoyan.Student" autowire="byType">
@@ -172,19 +122,11 @@ public class Address {
 </bean>
 ```
 
-
-
 ### 注解
-
-
 
 定义类
 
-
-
 Student
-
-
 
 ```java
 @Component(value = "student")
@@ -199,11 +141,7 @@ public class Student {
 }
 ```
 
-
-
 Address
-
-
 
 ```java
 @Component(value = "address")
@@ -215,38 +153,22 @@ public class Address {
 }
 ```
 
-
-
 注册扫描器
-
-
 
 ```xml
 <!--组件扫描器-->
 <context:component-scan base-package="com.cskaoyan"/>
 ```
 
-
-
 ## AOP
-
-
 
 AOP的底层实现就是动态代理
 
-
-
 AspectJ是一个AOP框架
-
-
 
 使用步骤
 
-
-
 （1）新建Maven项目，导入依赖
-
-
 
 ```xml
 <dependency>
@@ -256,11 +178,7 @@ AspectJ是一个AOP框架
 </dependency>
 ```
 
-
-
 （2）添加AOP约束文件
-
-
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -277,15 +195,9 @@ AspectJ是一个AOP框架
 		https://www.springframework.org/schema/aop/spring-aop.xsd">
 ```
 
-
-
 （3）定义接口及其实现类
 
-
-
 UserService
-
-
 
 ```java
 public interface UserService {
@@ -293,11 +205,7 @@ public interface UserService {
 }
 ```
 
-
-
 UserServiceImpl
-
-
 
 ```java
 @Component
@@ -312,11 +220,7 @@ public class UserServiceImpl implements UserService {
 }
 ```
 
-
-
 （4）注册Aspect组件
-
-
 
 ```java
 @Aspect
@@ -332,11 +236,7 @@ public class MyAspect {
 }
 ```
 
-
-
 （5）设置组件扫描器以及AspectJ自动生成代理
-
-
 
 ```xml
 <!--组件扫描器-->
@@ -346,19 +246,11 @@ public class MyAspect {
 <aop:aspectj-autoproxy/>
 ```
 
-
-
 ## AspectJ事务管理
-
-
 
 AOP面向切面编程事务管理
 
-
-
 配置如下
-
-
 
 ```xml
 <!--datasource-->
@@ -388,19 +280,11 @@ AOP面向切面编程事务管理
 </aop:config>
 ```
 
-
-
 # Spring事务管理
-
-
 
 声明式事务管理
 
-
-
 （1）配置事务管理器
-
-
 
 ```xml
 <!--事务管理-->
@@ -412,11 +296,7 @@ AOP面向切面编程事务管理
 <tx:annotation-driven transaction-manager="transactionManager"/>
 ```
 
-
-
 （2）在Service层所在事务方法添加注解
-
-
 
 ```java
 @Transactional
@@ -438,8 +318,6 @@ public void transfer(Integer fromId, Integer toId, Integer money) {
     accountMapper.updateAccountBalance(toId, targetAccountBalance);
 }
 ```
-
-
 
 只要发生运行时异常，那么就会自动回滚
 
@@ -477,11 +355,7 @@ public void transfer(Integer fromId, Integer toId, Integer money) {
 </dependencies>
 ```
 
-
-
 （2）配置文件
-
-
 
 ```xml
 <!--datasource-->
@@ -504,15 +378,9 @@ public void transfer(Integer fromId, Integer toId, Integer money) {
 </bean>
 ```
 
-
-
 （3）Dao层
 
-
-
 AccountDao
-
-
 
 ```java
 public interface AccountDao {
@@ -524,15 +392,9 @@ public interface AccountDao {
 }
 ```
 
-
-
 （4）Service层
 
-
-
 AccountService
-
-
 
 ```java
 public interface AccountService {
@@ -540,11 +402,7 @@ public interface AccountService {
 }
 ```
 
-
-
 AccountServiceImpl
-
-
 
 ```java
 @Component
@@ -573,11 +431,7 @@ public class AccountServiceImpl implements AccountService {
 }
 ```
 
-
-
 （5）测试
-
-
 
 ```java
 // Spring容器
