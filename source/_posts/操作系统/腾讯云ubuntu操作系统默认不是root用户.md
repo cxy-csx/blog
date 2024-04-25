@@ -29,8 +29,6 @@ sudo passwd root
 sudo vi /etc/ssh/sshd_config
 ```
 
-![image-20230526150350316](https://cxy-csx.top/image-20230526150350316.png)
-
 PermitRootLogin 修改为yes
 
 重启ssh

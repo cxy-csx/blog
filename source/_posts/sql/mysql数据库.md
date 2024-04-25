@@ -5,53 +5,37 @@ date: 2023-08-30 15:52:25
 
 # **常见数据库**
 
-
-
 数据库主要分为两种：关系型数据库以及非关系型数据库
-
-
 
 常见的**关系型数据库**有`Mysql`、`Oracal`
 
-
-
 常见的**非关系型数据库**有`Memacach`、`Redis`
-
-
 
 数据库排行榜
 
-
-
 https://db-engines.com/en/ranking
-
-
 
 # `Mysql`服务启动与关闭
 
-
+启动
 
 ```
 net start Mysql
 ```
 
-
+关闭
 
 ```
 net stop Mysql
 ```
 
-
-
 # 连接数据库
 
-
+连接数据库
 
 ```
 mysql -uroot -p123456
 ```
-
-
 
 # `SQL`语句分类
 
@@ -63,39 +47,25 @@ mysql -uroot -p123456
 
 查询
 
-
-
 ```
 select
 ```
 
-
-
 ## DML操作
-
-
 
 ```
 insert
 ```
 
-
-
 ```
 delete
 ```
-
-
 
 ```
 update
 ```
 
-
-
 对数据/记录进行增删改
-
-
 
 ## DDL定义
 
