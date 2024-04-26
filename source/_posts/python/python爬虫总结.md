@@ -812,8 +812,6 @@ except rts.exceptions.ReadTimeout as rte:
     print("读取异常-超时", rte)
 ```
 
-
-
 ## 1.3 数据解析
 
 ### 1.3.1json字符串解析
