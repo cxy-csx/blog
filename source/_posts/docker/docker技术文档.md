@@ -1,9 +1,13 @@
 ---
-title: Docker安装ES搜索引擎
-date: 2023-06-29 20:41:56
+title: docker技术文档
+date: 2024-04-26 09:58:56
 ---
 
-# 操作步骤
+
+
+# Docker安装ES搜索引擎
+
+## 操作步骤
 
 系统：CentOS 2核4G
 
@@ -29,7 +33,7 @@ docker run -d --name kibana --net elastic -p 5601:5601 docker.elastic.co/kibana/
 
 通过访问 `http://ip:9200` 来验证 Elasticsearch 是否正常工作，以及通过访问 `http://ip:5601` 来验证 Kibana 是否正常工作
 
-# 分词器安装
+## 分词器安装
 
 1.进入容器内部
 
@@ -59,11 +63,7 @@ POST _analyze
 }
 ```
 
-截图
-
-![image-20230629210053461](http://cxy-csx.top/image-20230629210053461.png)
-
-# 索引
+## 索引
 
 创建、查看、删除索引
 
@@ -75,7 +75,7 @@ get /<index_name>
 DELETE /<index_name>
 ```
 
-指定数据结构
+## 数据结构
 
 ```json
 PUT /product
@@ -111,8 +111,6 @@ POST /product/_doc
 }
 ```
 
-![image-20230629215900236](http://cxy-csx.top/image-20230629215900236.png)
-
 查看
 
 ```
@@ -142,7 +140,7 @@ POST /product/_update/<id>
 }
 ```
 
-# Java操作ES
+## Java操作ES
 
 引入依赖
 
@@ -336,7 +334,7 @@ public class BaseTest {
 }
 ```
 
-## 增
+### 增
 
 ```java
 public String createDocument(Product product){
@@ -347,7 +345,7 @@ public String createDocument(Product product){
 }
 ```
 
-## 删
+### 删
 
 ```java
 public void deleteDocument(String documentId){
@@ -357,7 +355,7 @@ public void deleteDocument(String documentId){
 }
 ```
 
-## 改
+### 改
 
 ```java
 public void updateDocument(String documentId, Product product) {
@@ -379,7 +377,7 @@ public void updateDocument(String documentId, Product product) {
 }
 ```
 
-## 查
+### 查
 
 ```java
 public Product findById(String documentId) {
@@ -387,5 +385,219 @@ public Product findById(String documentId) {
 }
 ```
 
+# Docker安装Mysql
 
+## 安装mysql
 
+```
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=your_password -p 3306:3306 -d mysql:latest
+```
+
+在上面的命令中，将`your_password`替换为您要设置的MySQL root密码。
+
+这个命令将会从Docker Hub下载最新版本的MySQL镜像，并在容器中运行它。`--name`选项指定容器的名称，`-e MYSQL_ROOT_PASSWORD`选项设置MySQL root用
+
+户的密码，`-p`选项将容器的3306端口映射到主机的3306端口，`-d`选项将容器在后台运行。
+
+## 查看运行容器
+
+```
+docker ps
+```
+
+# Docker安装Nginx
+
+## Nginx配置文件
+
+root目录下创建
+
+```java
+mkdir nginx
+cd nginx
+mkdir conf
+mkdir html
+mkdir log
+```
+
+先创建一个Nginx容器， 拷贝配置文件
+
+```java
+docker run -d -p 80:80 --name nginx nginx
+docker cp 容器id:/etc/nginx/nginx.conf /root/nginx/conf/nginx.conf
+docker cp 容器id:/etc/nginx/conf.d /root/nginx/conf/conf.d
+docker cp 容器id:/usr/share/nginx/html/ /root/nginx
+```
+
+删除容器
+
+```java
+docker stop 容器id
+docker rm 容器id
+```
+
+重新起一个Nginx容器
+
+```java
+docker run -d -p 80:80 --name nginx --privileged --restart always -v /root/nginx/conf/nginx.conf:/etc/nginx/nginx.con -v /root/nginx/conf/conf.d:/etc/nginx/conf.d -v /root/nginx/html:/usr/share/nginx/html -v /root/nginx/log:/var/log/nginx nginx
+```
+
+# Docker安装Redis
+
+centos7.6
+
+1.首先，确保您已经安装了Docker。您可以从Docker官方网站下载并安装适用于您的操作系统的Docker版本。
+
+2.打开终端或命令提示符，并运行以下命令从Docker Hub上下载Redis镜像
+
+```
+docker pull redis
+```
+
+3.下载完成后，可以运行以下命令来创建一个Redis容器
+
+```
+docker run --name redis -d -p 6379:6379 redis
+```
+
+这将在后台运行一个名为"redis"的容器，并将主机的6379端口映射到容器的6379端口
+
+4.查看容器，验证它是否正在运行
+
+```
+docker ps
+```
+
+ubuntu操作系统
+
+## 拉取镜像
+
+```
+docker pull redis
+```
+
+如果镜像下载速度太慢，可先设置docker镜像源
+
+```
+vi /etc/docker/daemon.json
+```
+
+配置文件
+
+```json
+{
+  "registry-mirrors": ["https://mirror.ccs.tencentyun.com"]
+}
+```
+
+重启docker
+
+```
+systemctl restart docker
+```
+
+查看是否配置成功
+
+```
+docker info
+```
+
+## 创建容器
+
+在宿主机上创建/etc/redis/data目录, 以及redis配置文件/etc/redis/redis.conf
+
+```
+docker run -d -p 6379:6379 --name redis  -v /etc/redis/redis.conf:/etc/redis/redis.conf -v /etc/redis/data:/etc/redis/data redis
+```
+
+参数解释
+
+- `docker run`: 运行一个新的容器
+- `-d`: 在后台运行容器
+- `-p 6379:6379`: 将容器内部的 6379 端口映射到主机的 6379 端口，允许通过主机的 6379 端口访问 Redis 服务
+- `--name redis`: 指定容器的名称为 "redis"
+- `-v /etc/redis/redis.conf:/etc/redis/redis.conf`: 将主机上的 `/etc/redis/redis.conf` 文件挂载到容器内的 `/etc/redis/redis.conf` 路径，从而使用自定义的 Redis 配置文件
+- `-v /etc/redis/data:/etc/redis/data`: 将主机上的 `/etc/redis/data` 目录挂载到容器内的 `/etc/redis/data` 路径，用于持久化存储 Redis 数据
+- `redis`: 指定要使用的镜像名称
+
+## 配置文件
+
+命令如下
+
+```
+docker exec redis redis-server --version
+```
+
+配置文件下载地址：https://redis.io/docs/management/config/
+
+修改配置文件
+
+```
+bind 0.0.0.0
+protected-mode no
+```
+
+解释说明
+
+`bind 0.0.0.0`:  设置为 `0.0.0.0`，允许其他设备或计算机通过远程连接访问 Redis 服务
+
+`protected-mode no`:  保护模式是一种安全特性，它限制了对外部网络的访问，只允许本地主机进行连接。通过设置为 `no`，将禁用保护模式，允许外部网络连接到 Redis
+
+开放6379端口
+
+## Redis客户端
+
+Another Redis Desktop Manager
+
+github地址：https://github.com/qishibo/AnotherRedisDesktopManager
+
+# ubantu安装Docker
+
+## 操作步骤
+
+1.更新软件包列表
+
+```
+sudo apt update
+```
+
+2.安装必要的软件包，以允许apt使用HTTPS：
+
+```
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+```
+
+3.添加Docker官方GPG密钥：
+
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+
+4.添加Docker官方稳定版存储库（repository）：
+
+```
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+5.更新软件包列表（再次运行）：
+
+```
+sudo apt update
+```
+
+6.安装Docker引擎：
+
+```
+sudo apt install docker-ce docker-ce-cli containerd.io
+```
+
+7.查看docker版本：
+
+```
+docker --version
+```
+
+解释
+
+第二步是为了确保apt可以通过HTTPS访问软件包。在某些情况下，如果不安装这些必要的软件包，可能会导致无法正常访问Docker的软件包仓库。apt-transport-https软件包允许apt使用HTTPS协议进行安全的软件包传输。ca-certificates软件包包含用于验证SSL证书的根证书。curl是一个用于从网络下载文件的工具。software-properties-common软件包提供了管理软件源的常用工具。
+
+第三步添加了Docker官方的GPG密钥，这是为了确保下载的Docker软件包的完整性和可信度。GPG密钥用于验证软件包的来源和完整性。通过添加Docker官方的GPG密钥，您可以确保下载的Docker软件包来自官方信任的来源，而不是被篡改或恶意替换的。在添加GPG密钥之后，系统将能够验证下载的软件包是否由Docker官方签名，并且未被修改过。这有助于确保您安装的软件包是可信的。因此，为了确保安全性和可信度，第三步添加Docker官方的GPG密钥是必须的。如果跳过该步骤，您将无法保证您下载的软件包的来源和完整性。

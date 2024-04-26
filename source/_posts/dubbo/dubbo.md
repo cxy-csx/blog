@@ -5,27 +5,15 @@ date: 2023-08-30 15:36:05
 
 RPC远程调用
 
-
-
 项目结构
-
-
 
 ![img](https://gitee.com/gmbjzg/typoraPicture/raw/master/image-20220117214735149.png)
 
-
-
 # 示例1
-
-
 
 直接调用服务提供方的接口实现类对象
 
-
-
 **接口**
-
-
 
 ```java
 public interface DemoService {
@@ -33,15 +21,9 @@ public interface DemoService {
 }
 ```
 
-
-
 **服务提供方**
 
-
-
 接口实现类
-
-
 
 ```java
 public class DemoServiceImpl implements DemoService {
@@ -52,11 +34,7 @@ public class DemoServiceImpl implements DemoService {
 }
 ```
 
-
-
 配置文件
-
-
 
 ```xml
 <!--服务提供者名称-->
@@ -72,11 +50,7 @@ public class DemoServiceImpl implements DemoService {
 <dubbo:protocol name="dubbo" port="20880"/>
 ```
 
-
-
 主程序
-
-
 
 ```java
 public class Main {
@@ -93,15 +67,9 @@ public class Main {
 }
 ```
 
-
-
 **调用者**
 
-
-
 主程序
-
-
 
 ```java
 public class Main {
@@ -116,11 +84,7 @@ public class Main {
 }
 ```
 
-
-
 配置文件
-
-
 
 ```xml
 <!--调用者名称-->
@@ -134,19 +98,11 @@ public class Main {
 
 # 示例2
 
-
-
 基于注册中心的RPC远程调用
-
-
 
 只需要启动注册中心服务
 
-
-
 服务提供方配置文件如下
-
-
 
 ```xml
 <!--服务提供者名称-->
@@ -165,11 +121,7 @@ public class Main {
 <dubbo:registry address="zookeeper://localhost:2181" />
 ```
 
-
-
 调用者提供方配置文件如下
-
-
 
 ```xml
 <!--调用者名称-->
@@ -182,19 +134,11 @@ public class Main {
 <dubbo:registry address="zookeeper://localhost:2181" />
 ```
 
-
-
 # 示例3
-
-
 
 基于SpringBoot框架的RPC远程调用
 
-
-
 **接口**
-
-
 
 ```java
 public interface DemoService {
@@ -202,15 +146,9 @@ public interface DemoService {
 }
 ```
 
-
-
 **服务方**
 
-
-
 接口实现类
-
-
 
 ```java
 @Service
@@ -222,11 +160,7 @@ public class DemoServiceImpl implements DemoService {
 }
 ```
 
-
-
 主程序
-
-
 
 ```yaml
 @SpringBootApplication
@@ -238,11 +172,7 @@ public class ProviderTest {
 }
 ```
 
-
-
 配置文件
-
-
 
 ```yaml
 dubbo:
@@ -257,15 +187,9 @@ dubbo:
     address: zookeeper://localhost:2181
 ```
 
-
-
 **调用者**
 
-
-
 类
-
-
 
 ```java
 @Component
@@ -282,11 +206,7 @@ public class ConsumerService {
 }
 ```
 
-
-
 主程序
-
-
 
 ```java
 @SpringBootApplication
@@ -306,11 +226,7 @@ public class ConsumerTest {
 }
 ```
 
-
-
 配置文件
-
-
 
 ```yaml
 dubbo:

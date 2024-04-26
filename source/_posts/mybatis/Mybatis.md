@@ -5,23 +5,13 @@ date: 2023-08-30 15:34:36
 
 # Mybatis
 
-
-
 `Mybatis`是一个开源的操作数据库`ORM`框架
-
-
 
 ORM：Object Relation Mapper（对象关系映射）
 
-
-
 文档：https://mybatis.org/mybatis-3/zh/index.html
 
-
-
 项目：https://github.com/mybatis/mybatis-3
-
-
 
 ## 项目结构
 
@@ -33,15 +23,9 @@ ORM：Object Relation Mapper（对象关系映射）
 
 ## 基本使用
 
-
-
 （1）导入相关依赖
 
-
-
 示例如下
-
-
 
 ```xml
 <!-- Mybatis-->
@@ -66,11 +50,7 @@ ORM：Object Relation Mapper（对象关系映射）
 </dependency>
 ```
 
-
-
 （2）配置`Mybatis`配置文件
-
-
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -101,11 +81,7 @@ ORM：Object Relation Mapper（对象关系映射）
 </configuration>
 ```
 
-
-
 （3）配置映射文件
-
-
 
 ```java
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -122,11 +98,7 @@ ORM：Object Relation Mapper（对象关系映射）
 </mapper>
 ```
 
-
-
 模型
-
-
 
 ```java
 package com.cskaoyan.vo;
@@ -139,11 +111,7 @@ public class User {
 }
 ```
 
-
-
 （4）往数据库中插入记录
-
-
 
 ```java
 package com.cskaoyan;
@@ -185,6 +153,43 @@ public class Main {
 }
 ```
 
+# 关闭SQL输出
 
+关闭sql输出
 
-# 
+```xml
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+```
+
+# MybatisPlusConfig分页配置
+
+```java
+package vip.csx.cxy.config;
+
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@MapperScan("vip.csx.cxy.mapper")
+public class MybatisPlusConfig {
+    @Bean
+    public MybatisPlusInterceptor mybatisPlusInterceptor(){
+        MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
+        mybatisPlusInterceptor.addInnerInterceptor(new PaginationInnerInterceptor());
+        return mybatisPlusInterceptor;
+    }
+}
+```
+
+使用
+
+```java
+IPage<Course> page = new Page<>(start, CodeConstant.PAGE_SIZE);
+IPage<Course> courseIPage = courseMapper.selectPage(page, null);
+```
+

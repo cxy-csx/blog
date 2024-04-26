@@ -50,5 +50,15 @@ theme: fluid
 
 自定义配置文件_confing.fluid.yml
 
+# 常见问题
 
+## 设置文章格式
 
+scaffolds文件夹下
+
+```
+title: {{ title }}
+date: {{ date }}
+```
+
+使用 hexo new articleName 创建文章
