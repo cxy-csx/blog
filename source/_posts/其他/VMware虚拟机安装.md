@@ -5,19 +5,11 @@ date: 2023-08-31 15:27:11
 
 # Vmavare虚拟机
 
-
-
 ## CentOS8系统
-
-
 
 准备`iso`光盘
 
-
-
 详细步骤如下
-
-
 
 1.新建虚拟机
 
@@ -50,8 +42,6 @@ date: 2023-08-31 15:27:11
 ![img](https://cdn.nlark.com/yuque/0/2021/png/21471868/1632127578759-7fe898cf-6f10-447e-9a36-fb355764e20b.png)
 
 8.编辑虚拟机
-
-
 
 内存大小
 
@@ -133,23 +123,15 @@ selinux在重启后更新label
 
 # RPM软件包
 
-
-
 什么是RPM:
 
 RPM：redhat package management英文缩写，只适于于Redhat和Centos系统
 
-
-
 相当于windows的exe程序
-
-
 
 安装RPM包:
 
 rpm -ivh psmisc-23.1-3.el8.x86_64
-
-
 
 查看RPM包:
 
@@ -157,27 +139,19 @@ rpm -qa
 
 rpm -qa | grep psmisc-23.1
 
-
-
 查看RPM包安装的文件:
 
 rpm -ql psmisc-23.1
 
 rpm -ql psmisc-23.1 | grep pstree
 
-
-
 反查文件是否是由RPM包安装的:
 
 rpm -qf /usr/bin/pstree
 
-
-
 查看命令所在路径
 
 which pstree
-
-
 
 删除RPM安装程序:
 
@@ -187,23 +161,15 @@ rpm -e psmisc-23.1
 
 # yum软件包管理
 
-
-
 类似于python中`pip`第三方包管理
-
-
 
 1.挂载光盘
 
 mount /dev/cdrom /media
 
-
-
 2.查看挂载
 
 df
-
-
 
 3.配置yum
 
@@ -215,8 +181,6 @@ rm -rf *
 
 mv /mnt/CentOS-Media.repo ./
 
-
-
 4.vi CentOS-Media.repo
 
 [c8-media-BaseOS]
@@ -227,8 +191,6 @@ gpgcheck=0
 
 enabled=1
 
-
-
 [c8-media-AppStream]
 
 baseurl=file:///media/AppStream
@@ -237,39 +199,25 @@ gpgcheck=0
 
 enabled=1
 
-
-
 5.查看yum可控制的软件包
 
 yum list | wc -l
 
 yum list | grep iptables
 
-
-
 6.yum安装rpm软件包
 
 yum -y install iptables-services
 
-
-
-
-
 YUM仓库的前提是做准备光盘
-
-
 
 1.检查光盘是否正常挂载
 
 df
 
-
-
 2.挂载
 
 mount /dev/cdrom /media
-
-
 
 配置YUM仓库:
 
@@ -283,8 +231,6 @@ rm -rf *
 
 mv /mnt/CentOS-Media.repo ./
 
-
-
 2.设置CentOS-Media.repo文件
 
 vi CentOS-Media.repo
@@ -297,8 +243,6 @@ gpgcheck=0
 
 enabled=1
 
-
-
 [c8-media-AppStream]
 
 baseurl=file:///media/AppStream
@@ -306,8 +250,6 @@ baseurl=file:///media/AppStream
 gpgcheck=0
 
 enabled=1
-
-
 
 查看YUM可控制的软件包
 
@@ -317,13 +259,9 @@ yum list | wc -l
 
 yum list | grep httpd
 
-
-
 YUM安装rpm软件包
 
 yum -y install httpd
-
-
 
 用YUM如何去卸载rpm包
 
@@ -331,13 +269,9 @@ yum -y remove httpd
 
 # selinux
 
-
-
 1.查看 
 
 sestatus 
-
-
 
 2.关闭
 
@@ -345,15 +279,11 @@ vi /etc/selinux/config
 
 SELINUX=disabled
 
-
-
 3.重启
 
 init 6
 
 # firewald
-
-
 
 firewalld防火墙:
 
@@ -361,13 +291,9 @@ firewalld防火墙:
 
 systemctl status firewalld
 
-
-
 2.关闭
 
 systemctl stop firewalld
-
-
 
 3.开机关闭
 
@@ -381,13 +307,9 @@ systemctl disable firewalld
 
 iptables -L -n
 
-
-
 2.清空规则 
 
 iptables -F
-
-
 
 3.保存规则 
 
@@ -407,19 +329,13 @@ service iptables save
 
 hostname
 
-
-
 2.查看主机名与系统详情
 
 hostnamectl status
 
-
-
 3.临时修改
 
 hostname yzmedu
-
-
 
 4.永久修改
 
@@ -427,19 +343,13 @@ hostname yzmedu
 
 vi /etc/hostname
 
-
-
 2)hostnamectl方法
 
 hostnamectl set-hostname 
 
-
-
 3)重启生效
 
 init 6
-
-
 
 网络管理:
 
@@ -449,13 +359,9 @@ ifconfig
 
 ifconfig ens32
 
-
-
 2.临时修改
 
 ifconfig ens32 192.168.10.1
-
-
 
 3.永久修改
 
@@ -477,13 +383,9 @@ DNS1=114.114.114.114
 
 DNS1=8.8.8.8
 
-
-
 查看路由信息
 
 route -n
-
-
 
 通讯测试:
 
@@ -491,67 +393,45 @@ route -n
 
 ping www.baidu.com
 
-\#可测试ip、dns和网关是否都设置正确
-
-
+可测试ip、dns和网关是否都设置正确
 
 # nmclic网络配置
-
-
 
 a.查看网络设备状态
 
 nmcli device status
 
-
-
 查看网卡详细信息
 
 nmcli device show ens32
-
-
 
 b.设置静态ip地址
 
 nmcli connection modify ens32 ipv4.addresses '192.168.1.100'
 
-
-
 c.设置DNS
 
 nmcli connection modify ens32 ipv4.dns '114.114.114.114'
-
-
 
 d.设置网关
 
 nmcli connection modify ens32 ipv4.gateway '192.168.1.1'
 
-
-
 e.设置IP地址为手动指定
 
 nmcli connection modify ens32 ipv4.method manual
-
-
 
 f.设置IP地址为dhcp自动获取
 
 nmcli connection modify ens32 ipv4.method auto
 
-
-
 g.设置开机自动连接
 
 nmcli connection modify ens32 connection.autoconnect yes
 
-
-
 **重新加载配置文件**
 
 nmcli connection reload
-
-
 
 **激活网卡**
 
@@ -565,13 +445,9 @@ nmcli device reapply ens32
 
 # SSH客户端
 
-
-
 SSH客户端有很多，如宝塔面板，`cmder`
 
 ## cmder
-
-
 
 ```python
 # 登录
@@ -580,53 +456,37 @@ ssh root@192.168.43.22
 
 密钥方式登录
 
-
-
 SSH密钥操作:
 
 1.win生成密钥对
 
 ssh-keygen -t rsa
 
-
-
 2.进入.SSH目录 
 
 cd C:\Users\Administrator\.ssh
-
-
 
 3.把公钥拷贝到linux下/root/.ssh目录下
 
 scp id_rsa.pub root@192.168.2.1:/root/.ssh
 
-
-
 4.在linux上把公钥改名
 
 mv id_rsa.pub authorized_keys
-
-
 
 5.客户端无口令测试-命令操作
 
 ssh root@192.168.2.1
 
-
-
 6.客户端无口令测试-文件传输
 
 scp index.php root@192.168.2.1:/root/
-
-
 
 ssh登录服务器
 
 ssh root@192.168.2.1
 
 ## 宝塔面板
-
-
 
 直接登录
 
@@ -658,9 +518,7 @@ ssh root@192.168.2.1
 
 10.systemd执行graphical需要的服务
 
-
-
-Linux运行级别
+**Linux运行级别**
 
 0 shutdown.target(关机)
 
@@ -676,27 +534,19 @@ Linux运行级别
 
 6 无(重启)
 
-
-
-查看默认级别
+**查看默认级别**
 
 systemctl get-default
 
-
-
-设置默认级别
+**设置默认级别**
 
 systemctl set-default multi-user.target
 
-
-
-切换运行级别
+**切换运行级别**
 
 1.ini命令
 
 init 0|1|3|5|6
-
-
 
 2.systemctl命令
 
@@ -704,63 +554,41 @@ systemctl isolate multi-user.target
 
 systemctl isolate graphical.target
 
-
-
-查看运行级别
+**查看运行级别**
 
 runlevel
 
-
-
-列出所有target
+**列出所有target**
 
 systemctl list-units --type=target --all
 
-
-
-查看系统中所有服务的启动状态
+**查看系统中所有服务的启动状态**
 
 systemctl list-unit-files
-
-
 
 脚本自启动文件/etc/rc.d/rc.local
 
 systemctl start sshd.service
 
-
-
 systemctl服务名官方建议
 
 sshd.service
 
-
-
-查看服务是否启动
+**查看服务是否启动**
 
 systemctl is-active sshd.service
 
 systemctl status sshd.service
 
-
-
-查看是否开机启动
+**查看是否开机启动**
 
 systemctl is-enabled sshd.service
 
 # systemctl
 
-
-
 自定义服务脚本，添加到systemctl的管控范围
 
-
-
-
-
 systemctl服务管理:
-
-
 
 1.查看服务启动级别
 
@@ -768,69 +596,48 @@ systemctl服务管理:
 
 WantedBy=multi-user.target
 
-
-
 2.查看状态
 
 systemctl status sshd.service
-
-
 
 3.启动服务
 
 systemctl start sshd.service
 
-
-
 4.重启服务
 
 systemctl restart sshd.service
-
-
 
 5.关闭服务
 
 systemctl stop sshd.service
 
-
-
 6.重载服务
 
-systemctl reload sshd.service
-
-
+systectl reload sshd.service
 
 7.开机启动
 
 systemctl enable sshd.service
 
-
-
 8.开机关闭
 
 systemctl disable sshd.serivce
-
-
 
 9.是否开机启动
 
 systemctl is-enabled sshd.service
 
-
-
 10.是否启动
 
 systemctl is-active sshd.serivce
-
-
 
 自定义startMyApp.sh脚本程序：
 
 vi /mnt/startMyApp.sh
 
-\#!/bin/sh
-
-
+```vim
+!/bin/sh
 
 i=0
 
@@ -838,13 +645,16 @@ while true
 
 do
 
-​	echo $i>>/mnt/MyApp.txt
+echo $i>>/mnt/MyApp.txt
 
-​	((i++))
+((i++))
 
-​	sleep 1
+sleep 1
 
 done
+```
+
+
 
 
 
@@ -2042,15 +1852,11 @@ cron是一个可以用来根据时间、日期、月份和星期的组合来调�
 
 ，利用cron所提供的功能，可以将需要周期性重复执行的任务设置为cron任务，并且设置为在主机较空闲的时间自动完成。
 
-
-
-查看Crontab服务:
+**查看Crontab服务:**
 
 systemctl status crond 
 
-
-
-任务计划格式:
+**任务计划格式:**
 
 *(分) *(时) *(日) *(月) *(周) 周期执行的程序
 
@@ -2098,42 +1904,36 @@ systemctl status crond
 
 
 
-查看cron任务计划:
+**查看cron任务计划:**
 
 crontab -l
 
 
 
-编辑cron任务计划:
+**编辑cron任务计划:**
 
 crontab -e
 
 
 
-删除所有cron任务计划:
+**删除所有cron任务计划:**
 
 crontab -r
 
 # Cokpit监控系统
 
-Cockpit Web系统监控:
+**Cockpit Web系统监控:**
 
 systemctl enable --now cockpit.socket
 
-
-
-开启cockpit服务:
+**开启cockpit服务:**
 
 systemctl start cockpit.service
 
-
-
-查看cockpit状态:
+**查看cockpit状态:**
 
 systemctl status cockpit.service
 
-
-
-Web系统访问:
+**Web系统访问:**
 
 https://192.168.2.8:9090
